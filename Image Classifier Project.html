@@ -13282,7 +13282,7 @@ GPU Workspaces about Keeping Your Session Active. You'll want to include code fr
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># TODO: Build and train your network</span>
@@ -13297,10 +13297,85 @@ GPU Workspaces about Keeping Your Session Active. You'll want to include code fr
 </div>
 </div>
 
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>Downloading: &#34;https://download.pytorch.org/models/vgg16-397923af.pth&#34; to /root/.torch/models/vgg16-397923af.pth
+100%|██████████| 553433881/553433881 [00:05&lt;00:00, 96627048.39it/s] 
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[5]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>VGG(
+  (features): Sequential(
+    (0): Conv2d(3, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    (1): ReLU(inplace)
+    (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    (3): ReLU(inplace)
+    (4): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+    (5): Conv2d(64, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    (6): ReLU(inplace)
+    (7): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    (8): ReLU(inplace)
+    (9): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+    (10): Conv2d(128, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    (11): ReLU(inplace)
+    (12): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    (13): ReLU(inplace)
+    (14): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    (15): ReLU(inplace)
+    (16): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+    (17): Conv2d(256, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    (18): ReLU(inplace)
+    (19): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    (20): ReLU(inplace)
+    (21): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    (22): ReLU(inplace)
+    (23): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+    (24): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    (25): ReLU(inplace)
+    (26): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    (27): ReLU(inplace)
+    (28): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    (29): ReLU(inplace)
+    (30): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+  )
+  (classifier): Sequential(
+    (0): Linear(in_features=25088, out_features=4096, bias=True)
+    (1): ReLU(inplace)
+    (2): Dropout(p=0.5)
+    (3): Linear(in_features=4096, out_features=4096, bias=True)
+    (4): ReLU(inplace)
+    (5): Dropout(p=0.5)
+    (6): Linear(in_features=4096, out_features=1000, bias=True)
+  )
+)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># freeze feature detector parameters</span>
@@ -13316,7 +13391,7 @@ GPU Workspaces about Keeping Your Session Active. You'll want to include code fr
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Build new classifier, slap new classifier onto last step of pretrained network, print out parameters to confirm change</span>
@@ -13335,10 +13410,79 @@ GPU Workspaces about Keeping Your Session Active. You'll want to include code fr
 </div>
 </div>
 
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[7]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>VGG(
+  (features): Sequential(
+    (0): Conv2d(3, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    (1): ReLU(inplace)
+    (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    (3): ReLU(inplace)
+    (4): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+    (5): Conv2d(64, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    (6): ReLU(inplace)
+    (7): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    (8): ReLU(inplace)
+    (9): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+    (10): Conv2d(128, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    (11): ReLU(inplace)
+    (12): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    (13): ReLU(inplace)
+    (14): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    (15): ReLU(inplace)
+    (16): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+    (17): Conv2d(256, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    (18): ReLU(inplace)
+    (19): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    (20): ReLU(inplace)
+    (21): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    (22): ReLU(inplace)
+    (23): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+    (24): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    (25): ReLU(inplace)
+    (26): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    (27): ReLU(inplace)
+    (28): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    (29): ReLU(inplace)
+    (30): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+  )
+  (classifier): Sequential(
+    (0): Linear(in_features=25088, out_features=4096, bias=True)
+    (1): ReLU(inplace)
+    (2): Dropout(p=0.5)
+    (3): Linear(in_features=4096, out_features=4096, bias=True)
+    (4): ReLU(inplace)
+    (5): Dropout(p=0.5)
+    (6): Sequential(
+      (fc1): Linear(in_features=4096, out_features=256, bias=True)
+      (relu): ReLU()
+      (dropout): Dropout(p=0.5)
+      (fc2): Linear(in_features=256, out_features=102, bias=True)
+      (output): LogSoftmax()
+    )
+  )
+)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># now that classifier is built, setup loss function and optimizer</span>
@@ -13359,10 +13503,79 @@ GPU Workspaces about Keeping Your Session Active. You'll want to include code fr
 </div>
 </div>
 
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[8]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>VGG(
+  (features): Sequential(
+    (0): Conv2d(3, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    (1): ReLU(inplace)
+    (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    (3): ReLU(inplace)
+    (4): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+    (5): Conv2d(64, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    (6): ReLU(inplace)
+    (7): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    (8): ReLU(inplace)
+    (9): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+    (10): Conv2d(128, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    (11): ReLU(inplace)
+    (12): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    (13): ReLU(inplace)
+    (14): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    (15): ReLU(inplace)
+    (16): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+    (17): Conv2d(256, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    (18): ReLU(inplace)
+    (19): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    (20): ReLU(inplace)
+    (21): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    (22): ReLU(inplace)
+    (23): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+    (24): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    (25): ReLU(inplace)
+    (26): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    (27): ReLU(inplace)
+    (28): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    (29): ReLU(inplace)
+    (30): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+  )
+  (classifier): Sequential(
+    (0): Linear(in_features=25088, out_features=4096, bias=True)
+    (1): ReLU(inplace)
+    (2): Dropout(p=0.5)
+    (3): Linear(in_features=4096, out_features=4096, bias=True)
+    (4): ReLU(inplace)
+    (5): Dropout(p=0.5)
+    (6): Sequential(
+      (fc1): Linear(in_features=4096, out_features=256, bias=True)
+      (relu): ReLU()
+      (dropout): Dropout(p=0.5)
+      (fc2): Linear(in_features=256, out_features=102, bias=True)
+      (output): LogSoftmax()
+    )
+  )
+)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Train new network, calculate loss and accuracy</span>
@@ -13377,7 +13590,7 @@ GPU Workspaces about Keeping Your Session Active. You'll want to include code fr
 
     <span class="n">since</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
     
-    <span class="n">epochs</span> <span class="o">=</span> <span class="mi">5</span>
+    <span class="n">epochs</span> <span class="o">=</span> <span class="mi">2</span>
     <span class="n">steps</span> <span class="o">=</span> <span class="mi">0</span>
     
     <span class="n">running_loss</span> <span class="o">=</span> <span class="mi">0</span>
@@ -13455,6 +13668,355 @@ GPU Workspaces about Keeping Your Session Active. You'll want to include code fr
 </div>
 </div>
 
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Epoch 1/2
+--------------------
+
+                    Step: 6..
+                    Training Loss: 4.593...
+                    Training Accuracy: 0.109
+                    Validation Loss: 4.437...
+                    Validation Accuracy: 0.064
+                    Time Elapsed: 0m 27s
+                
+
+                    Step: 11..
+                    Training Loss: 4.491...
+                    Training Accuracy: 0.078
+                    Validation Loss: 4.256...
+                    Validation Accuracy: 0.099
+                    Time Elapsed: 0m 53s
+                
+
+                    Step: 16..
+                    Training Loss: 4.272...
+                    Training Accuracy: 0.109
+                    Validation Loss: 4.071...
+                    Validation Accuracy: 0.166
+                    Time Elapsed: 1m 19s
+                
+
+                    Step: 21..
+                    Training Loss: 4.209...
+                    Training Accuracy: 0.125
+                    Validation Loss: 3.877...
+                    Validation Accuracy: 0.189
+                    Time Elapsed: 1m 44s
+                
+
+                    Step: 26..
+                    Training Loss: 4.090...
+                    Training Accuracy: 0.156
+                    Validation Loss: 3.692...
+                    Validation Accuracy: 0.268
+                    Time Elapsed: 2m 10s
+                
+
+                    Step: 31..
+                    Training Loss: 3.898...
+                    Training Accuracy: 0.125
+                    Validation Loss: 3.499...
+                    Validation Accuracy: 0.286
+                    Time Elapsed: 2m 35s
+                
+
+                    Step: 36..
+                    Training Loss: 3.635...
+                    Training Accuracy: 0.219
+                    Validation Loss: 3.296...
+                    Validation Accuracy: 0.331
+                    Time Elapsed: 3m 1s
+                
+
+                    Step: 41..
+                    Training Loss: 3.551...
+                    Training Accuracy: 0.188
+                    Validation Loss: 3.085...
+                    Validation Accuracy: 0.351
+                    Time Elapsed: 3m 27s
+                
+
+                    Step: 46..
+                    Training Loss: 3.410...
+                    Training Accuracy: 0.375
+                    Validation Loss: 2.910...
+                    Validation Accuracy: 0.381
+                    Time Elapsed: 3m 52s
+                
+
+                    Step: 51..
+                    Training Loss: 3.089...
+                    Training Accuracy: 0.375
+                    Validation Loss: 2.740...
+                    Validation Accuracy: 0.414
+                    Time Elapsed: 4m 18s
+                
+
+                    Step: 56..
+                    Training Loss: 3.149...
+                    Training Accuracy: 0.219
+                    Validation Loss: 2.578...
+                    Validation Accuracy: 0.450
+                    Time Elapsed: 4m 44s
+                
+
+                    Step: 61..
+                    Training Loss: 2.852...
+                    Training Accuracy: 0.453
+                    Validation Loss: 2.428...
+                    Validation Accuracy: 0.503
+                    Time Elapsed: 5m 9s
+                
+
+                    Step: 66..
+                    Training Loss: 2.913...
+                    Training Accuracy: 0.297
+                    Validation Loss: 2.310...
+                    Validation Accuracy: 0.518
+                    Time Elapsed: 5m 34s
+                
+
+                    Step: 71..
+                    Training Loss: 2.745...
+                    Training Accuracy: 0.344
+                    Validation Loss: 2.188...
+                    Validation Accuracy: 0.536
+                    Time Elapsed: 5m 60s
+                
+
+                    Step: 76..
+                    Training Loss: 2.772...
+                    Training Accuracy: 0.422
+                    Validation Loss: 2.122...
+                    Validation Accuracy: 0.532
+                    Time Elapsed: 6m 25s
+                
+
+                    Step: 81..
+                    Training Loss: 2.569...
+                    Training Accuracy: 0.328
+                    Validation Loss: 2.020...
+                    Validation Accuracy: 0.539
+                    Time Elapsed: 6m 50s
+                
+
+                    Step: 86..
+                    Training Loss: 2.362...
+                    Training Accuracy: 0.422
+                    Validation Loss: 1.904...
+                    Validation Accuracy: 0.576
+                    Time Elapsed: 7m 16s
+                
+
+                    Step: 91..
+                    Training Loss: 2.523...
+                    Training Accuracy: 0.469
+                    Validation Loss: 1.859...
+                    Validation Accuracy: 0.574
+                    Time Elapsed: 7m 41s
+                
+
+                    Step: 96..
+                    Training Loss: 2.422...
+                    Training Accuracy: 0.391
+                    Validation Loss: 1.845...
+                    Validation Accuracy: 0.562
+                    Time Elapsed: 8m 6s
+                
+
+                    Step: 101..
+                    Training Loss: 2.299...
+                    Training Accuracy: 0.469
+                    Validation Loss: 1.756...
+                    Validation Accuracy: 0.597
+                    Time Elapsed: 8m 31s
+                
+Epoch 2/2
+--------------------
+
+                    Step: 106..
+                    Training Loss: 2.240...
+                    Training Accuracy: 0.344
+                    Validation Loss: 1.681...
+                    Validation Accuracy: 0.622
+                    Time Elapsed: 8m 55s
+                
+
+                    Step: 111..
+                    Training Loss: 2.340...
+                    Training Accuracy: 0.422
+                    Validation Loss: 1.627...
+                    Validation Accuracy: 0.628
+                    Time Elapsed: 9m 20s
+                
+
+                    Step: 116..
+                    Training Loss: 2.253...
+                    Training Accuracy: 0.406
+                    Validation Loss: 1.576...
+                    Validation Accuracy: 0.649
+                    Time Elapsed: 9m 45s
+                
+
+                    Step: 121..
+                    Training Loss: 2.264...
+                    Training Accuracy: 0.516
+                    Validation Loss: 1.558...
+                    Validation Accuracy: 0.636
+                    Time Elapsed: 10m 10s
+                
+
+                    Step: 126..
+                    Training Loss: 2.073...
+                    Training Accuracy: 0.438
+                    Validation Loss: 1.564...
+                    Validation Accuracy: 0.619
+                    Time Elapsed: 10m 34s
+                
+
+                    Step: 131..
+                    Training Loss: 2.141...
+                    Training Accuracy: 0.500
+                    Validation Loss: 1.551...
+                    Validation Accuracy: 0.619
+                    Time Elapsed: 10m 59s
+                
+
+                    Step: 136..
+                    Training Loss: 1.988...
+                    Training Accuracy: 0.438
+                    Validation Loss: 1.502...
+                    Validation Accuracy: 0.625
+                    Time Elapsed: 11m 24s
+                
+
+                    Step: 141..
+                    Training Loss: 2.152...
+                    Training Accuracy: 0.469
+                    Validation Loss: 1.420...
+                    Validation Accuracy: 0.680
+                    Time Elapsed: 11m 49s
+                
+
+                    Step: 146..
+                    Training Loss: 2.003...
+                    Training Accuracy: 0.484
+                    Validation Loss: 1.374...
+                    Validation Accuracy: 0.679
+                    Time Elapsed: 12m 13s
+                
+
+                    Step: 151..
+                    Training Loss: 2.024...
+                    Training Accuracy: 0.328
+                    Validation Loss: 1.357...
+                    Validation Accuracy: 0.678
+                    Time Elapsed: 12m 38s
+                
+
+                    Step: 156..
+                    Training Loss: 1.960...
+                    Training Accuracy: 0.438
+                    Validation Loss: 1.330...
+                    Validation Accuracy: 0.680
+                    Time Elapsed: 13m 3s
+                
+
+                    Step: 161..
+                    Training Loss: 1.997...
+                    Training Accuracy: 0.469
+                    Validation Loss: 1.341...
+                    Validation Accuracy: 0.659
+                    Time Elapsed: 13m 28s
+                
+
+                    Step: 166..
+                    Training Loss: 2.024...
+                    Training Accuracy: 0.531
+                    Validation Loss: 1.299...
+                    Validation Accuracy: 0.681
+                    Time Elapsed: 13m 52s
+                
+
+                    Step: 171..
+                    Training Loss: 1.884...
+                    Training Accuracy: 0.516
+                    Validation Loss: 1.261...
+                    Validation Accuracy: 0.697
+                    Time Elapsed: 14m 17s
+                
+
+                    Step: 176..
+                    Training Loss: 1.900...
+                    Training Accuracy: 0.438
+                    Validation Loss: 1.243...
+                    Validation Accuracy: 0.713
+                    Time Elapsed: 14m 42s
+                
+
+                    Step: 181..
+                    Training Loss: 1.787...
+                    Training Accuracy: 0.594
+                    Validation Loss: 1.235...
+                    Validation Accuracy: 0.707
+                    Time Elapsed: 15m 6s
+                
+
+                    Step: 186..
+                    Training Loss: 2.085...
+                    Training Accuracy: 0.328
+                    Validation Loss: 1.230...
+                    Validation Accuracy: 0.711
+                    Time Elapsed: 15m 31s
+                
+
+                    Step: 191..
+                    Training Loss: 1.890...
+                    Training Accuracy: 0.578
+                    Validation Loss: 1.214...
+                    Validation Accuracy: 0.715
+                    Time Elapsed: 15m 56s
+                
+
+                    Step: 196..
+                    Training Loss: 1.788...
+                    Training Accuracy: 0.609
+                    Validation Loss: 1.191...
+                    Validation Accuracy: 0.712
+                    Time Elapsed: 16m 20s
+                
+
+                    Step: 201..
+                    Training Loss: 1.969...
+                    Training Accuracy: 0.453
+                    Validation Loss: 1.174...
+                    Validation Accuracy: 0.712
+                    Time Elapsed: 16m 45s
+                
+
+                    Step: 206..
+                    Training Loss: 1.968...
+                    Training Accuracy: 0.547
+                    Validation Loss: 1.159...
+                    Validation Accuracy: 0.720
+                    Time Elapsed: 17m 10s
+                
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
@@ -13466,7 +14028,7 @@ GPU Workspaces about Keeping Your Session Active. You'll want to include code fr
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># TODO: Do validation on the test set</span>
@@ -13514,10 +14076,10 @@ GPU Workspaces about Keeping Your Session Active. You'll want to include code fr
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">test_model</span><span class="p">(</span><span class="n">loaded_model</span><span class="p">,</span> <span class="n">testloader</span><span class="p">,</span> <span class="n">loaded_criterion</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">test_model</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">testloader</span><span class="p">,</span> <span class="n">criterion</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -13536,9 +14098,9 @@ GPU Workspaces about Keeping Your Session Active. You'll want to include code fr
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>
             Step: 14..
-            Test Loss: 0.844...
-            Test Accuracy: 0.784
-            Time Elapsed: 0m 19s
+            Test Loss: 1.225...
+            Test Accuracy: 0.703
+            Time Elapsed: 0m 20s
         
 </pre>
 </div>
@@ -13560,7 +14122,7 @@ GPU Workspaces about Keeping Your Session Active. You'll want to include code fr
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># TODO: Save the checkpoint </span>
@@ -13586,6 +14148,19 @@ GPU Workspaces about Keeping Your Session Active. You'll want to include code fr
 </div>
 
 </div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">save_checkpoint</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">criterion</span><span class="p">,</span> <span class="n">optimizer</span><span class="p">,</span> <span class="n">epochs</span><span class="p">,</span> <span class="s1">&#39;developmental_checkpoint.pth&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -13596,7 +14171,7 @@ GPU Workspaces about Keeping Your Session Active. You'll want to include code fr
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># TODO: Write a function that loads a checkpoint and rebuilds the model</span>
@@ -13641,68 +14216,13 @@ GPU Workspaces about Keeping Your Session Active. You'll want to include code fr
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="prompt input_prompt">In&nbsp;[16]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">loaded_model</span><span class="o">.</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">loaded_model</span><span class="p">,</span> <span class="n">loaded_optimizer</span><span class="p">,</span> <span class="n">loaded_criterion</span> <span class="o">=</span> <span class="n">load_flowerfier_train</span><span class="p">(</span><span class="s1">&#39;developmental_checkpoint.pth&#39;</span><span class="p">)</span>
 </pre></div>
 
     </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_text output_error">
-<pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">TypeError</span>                                 Traceback (most recent call last)
-<span class="ansi-green-fg">&lt;ipython-input-9-0fc204e480dd&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
-<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>loaded_model<span class="ansi-blue-fg">.</span>type<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
-
-<span class="ansi-red-fg">TypeError</span>: type() missing 1 required positional argument: &#39;dst_type&#39;</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">loaded_model</span><span class="p">,</span> <span class="n">loaded_optimizer</span><span class="p">,</span> <span class="n">loaded_criterion</span> <span class="o">=</span> <span class="n">load_flowerfier_train</span><span class="p">(</span><span class="s1">&#39;model_checkpoint.pth&#39;</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>Downloading: &#34;https://download.pytorch.org/models/vgg16-397923af.pth&#34; to /root/.torch/models/vgg16-397923af.pth
-100%|██████████| 553433881/553433881 [00:05&lt;00:00, 106443671.52it/s]
-</pre>
-</div>
-</div>
-
 </div>
 </div>
 
@@ -13729,7 +14249,7 @@ GPU Workspaces about Keeping Your Session Active. You'll want to include code fr
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="prompt input_prompt">In&nbsp;[17]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># why build custom function when these operations in PyTorch? Speed?</span>
@@ -13786,7 +14306,7 @@ GPU Workspaces about Keeping Your Session Active. You'll want to include code fr
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="prompt input_prompt">In&nbsp;[18]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">processed</span>
@@ -13802,7 +14322,7 @@ GPU Workspaces about Keeping Your Session Active. You'll want to include code fr
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[11]:</div>
+    <div class="prompt output_prompt">Out[18]:</div>
 
 
 
@@ -13849,7 +14369,7 @@ GPU Workspaces about Keeping Your Session Active. You'll want to include code fr
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="prompt input_prompt">In&nbsp;[19]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">imshow</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
@@ -13881,7 +14401,7 @@ GPU Workspaces about Keeping Your Session Active. You'll want to include code fr
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="prompt input_prompt">In&nbsp;[20]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">imshow</span><span class="p">(</span><span class="n">processed</span><span class="p">)</span>
@@ -13897,13 +14417,13 @@ GPU Workspaces about Keeping Your Session Active. You'll want to include code fr
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[13]:</div>
+    <div class="prompt output_prompt">Out[20]:</div>
 
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7f9d44833cc0&gt;</pre>
+<pre>&lt;matplotlib.axes._subplots.AxesSubplot at 0x7fda93e4fd30&gt;</pre>
 </div>
 
 </div>
@@ -13945,7 +14465,7 @@ GPU Workspaces about Keeping Your Session Active. You'll want to include code fr
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[17]:</div>
+<div class="prompt input_prompt">In&nbsp;[21]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">predict</span><span class="p">(</span><span class="n">image_path</span><span class="p">,</span> <span class="n">model_checkpoint_path</span><span class="p">,</span> <span class="n">topk</span><span class="o">=</span><span class="mi">5</span><span class="p">):</span>
@@ -14020,7 +14540,7 @@ GPU Workspaces about Keeping Your Session Active. You'll want to include code fr
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[18]:</div>
+<div class="prompt input_prompt">In&nbsp;[22]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># TODO: Display an image along with the top 5 classes</span>
@@ -14061,7 +14581,7 @@ GPU Workspaces about Keeping Your Session Active. You'll want to include code fr
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[19]:</div>
+<div class="prompt input_prompt">In&nbsp;[23]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">sanity_check</span><span class="p">(</span><span class="n">image_path</span><span class="p">,</span> <span class="n">model_path</span><span class="p">):</span>
@@ -14091,7 +14611,7 @@ GPU Workspaces about Keeping Your Session Active. You'll want to include code fr
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[20]:</div>
+<div class="prompt input_prompt">In&nbsp;[24]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">sanity_check</span><span class="p">(</span><span class="n">image_path</span><span class="p">,</span> <span class="n">model_path</span><span class="p">)</span>
